@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FightScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1796767947616935167, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2065876850783948762, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -214,11 +218,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 7722020693166130574, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5412496652606256146, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 61752411151180423, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
     - {fileID: 5579868923210779189, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
+    - {fileID: 1697130306199585432, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
+    - {fileID: 742754622404694582, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5347079502688406196, guid: 7624d68f7029cb54b99fcdecaeff42c8, type: 3}
       insertIndex: -1
