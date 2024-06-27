@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
 
-public class Card : MonoBehaviour
+public class Card
 {
     public CardEffect[] _effects;
+        public int _id;
+        public string _name;
         public string _sprite;
         public int _cost;
+
+        public Card()
+        {
+            
+        }
 
         public Card(CardEffect[] effects, string sprite, int cost)
         {
@@ -14,15 +22,5 @@ public class Card : MonoBehaviour
             _sprite = sprite;
             _cost = cost;
         }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
