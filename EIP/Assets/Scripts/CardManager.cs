@@ -41,22 +41,4 @@ public class CardManager : MonoBehaviour
         Debug.Log(_cardsInHand);
         DrawCard(_cardsInHand);
     }
-
-    void DrawCard(int numberOfCards)
-    {
-        for (int i = 0; i < numberOfCards; i++)
-        {
-            if (_cardsDeck.Count > 0)
-            {
-                int randomIndex = Random.Range(0, _cardsDeck.Count);
-                _cardsHand.Add(_cardsDeck[randomIndex]);
-                _cardsDeck.RemoveAt(randomIndex);
-            }
-            else
-            {
-                Debug.LogWarning("No more cards in the deck to draw.");
-                break;
-            }
-        }
-    }
 }
