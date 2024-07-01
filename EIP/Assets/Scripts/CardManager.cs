@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class CardManager : MonoBehaviour
 {
@@ -38,13 +37,26 @@ public class CardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _cardsInHand = 2;
         Debug.Log(_cardsInHand);
         DrawCard(_cardsInHand);
     }
 
-    // Update is called once per frame
-    void Update()
+    void DrawCard(int numberOfCards)
     {
-        
+        for (int i = 0; i < numberOfCards; i++)
+        {
+            if (_cardsDeck.Count > 0)
+            {
+                int randomIndex = Random.Range(0, _cardsDeck.Count);
+                _cardsHand.Add(_cardsDeck[randomIndex]);
+                _cardsDeck.RemoveAt(randomIndex);
+            }
+            else
+            {
+                Debug.LogWarning("No more cards in the deck to draw.");
+                break;
+            }
+        }
     }
 }
