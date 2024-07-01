@@ -41,5 +41,4 @@ public class CardManager : MonoBehaviour
         Debug.Log(_cardsInHand);
         DrawCard(_cardsInHand);
     }
-
 }

@@ -5,17 +5,23 @@ using System.Collections.Generic;
 public class MapGeneration : MonoBehaviour
 {
     int[,] mapArray;
+    public ObjectPool objectPool;
 
     void Start()
     {
+        if (objectPool == null)
+        {
+            Debug.LogError("ObjectPool is not assigned in the MapGeneration script.");
+            return;
+        }
         StartGeneration();
+        GenerateMap();
     }
 
     public void StartGeneration()
     {
         mapArray = InitializeArray(15, 7);
         SetRandomElementsInFirstCollum(mapArray, GenerateRandomNumbers());
-        Debug.Log("Random numbers generated" + mapArray.GetLength(0));
         for (int i = 0; i < mapArray.GetLength(0) - 1; i++)
         {
             for (int j = 0; j < mapArray.GetLength(1); j++)
@@ -49,7 +55,6 @@ public class MapGeneration : MonoBehaviour
                 i++;
             }
         }
-        Debug.Log(numbers[0] + " " + numbers[1] + " " + numbers[2] + " " + numbers[3]);
         return numbers;
     }
 
@@ -64,7 +69,7 @@ public class MapGeneration : MonoBehaviour
     static void SetDirection(int[,] array, int x, int y)
     {
         System.Random random = new System.Random();
-        print("x: " + x + " y: " + y + " array: " + array[x, y]);
+        // print("x: " + x + " y: " + y + " array: " + array[x, y]);
         if (array[x, y] == 1)
         {
             int randomNumber = random.Next(0, 3);
@@ -107,4 +112,36 @@ public class MapGeneration : MonoBehaviour
         }
         Debug.Log(arrayString);
     }
+
+    void GenerateMap()
+    {
+        Debug.Log("Generating map");
+        int width = mapArray.GetLength(0);
+        int height = mapArray.GetLength(1);
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        float spacing = 180f;
+        float cellWidth = (screenWidth - (width + 1)) / 20;
+        float cellHeight = (screenHeight - (height + 1)) / 12;
+
+        Debug.Log("Cell width: " + cellWidth + " Cell height: " + cellHeight);
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (mapArray[x, y] == 1)
+                {
+                    GameObject spriteObj = objectPool.GetObject();
+                    Transform canvasTransform = spriteObj.transform.Find("Canvas");
+                    Transform imageTransform = canvasTransform.Find("Image");
+                    RectTransform rectTransform = imageTransform.GetComponent<RectTransform>();
+                    float posX = (y + 1) * cellWidth + (spacing * y);
+                    float posY = (x + 1) * cellHeight + (spacing * x);
+                    rectTransform.anchoredPosition = new Vector2(posX, posY);
+                }
+            }
+        }
+    }
+
 }
