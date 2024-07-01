@@ -8,6 +8,10 @@ public class CardEffect
     public int _strong;
     public int _duration;
 
+    public CardEffect()
+    {
+        
+    }
     public CardEffect(string type, int strong, int duration)
     {
         _type = type;
