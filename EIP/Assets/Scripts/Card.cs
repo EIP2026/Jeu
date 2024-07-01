@@ -9,20 +9,20 @@ public class Card
     public int _cost;
     public string _name;
     public List<CardEffect> _effects;
-    public Sprite _sprite;
+    public Sprite _spriteImage;
 
     public Card()
     {
         
     }
 
-    public Card(int id, string name, int cost, List<CardEffect> effects, Sprite sprite)
+    public Card(int id, string name, int cost, List<CardEffect> effects, Sprite spriteImage)
     {
         _id = id;
         _name = name;
         _cost = cost;
         _effects = effects;
-        _sprite = sprite;
+        _spriteImage = spriteImage;
     }
 
     public string effectsDescription()
