@@ -13,7 +13,7 @@ public class DisplayCard : MonoBehaviour
     public string cardName;
     public int cardCost;
     public List<CardEffect> cardEffects;
-    public Sprite cardSprite;
+    public Sprite spriteImage;
 
     public TextMeshProUGUI  nameText;
     public TextMeshProUGUI  costText;
@@ -27,16 +27,12 @@ public class DisplayCard : MonoBehaviour
         cardName = displayCard._name;
         cardCost = displayCard._cost;
         cardEffects = displayCard._effects;
-        cardSprite = displayCard._sprite;
+        spriteImage = displayCard._spriteImage;
 
         nameText.text = cardName;
         costText.text = "" + cardCost;
         effectsText.text = displayCard.effectsDescription();
-        artImage.sprite = cardSprite;
-        // for (int i = 0; i < cardEffects.Count; i++)
-        // {
-        //     effectsText.text += cardEffects[i]._type + " " + cardEffects[i]._strong + " " + cardEffects[i]._duration + " ";
-        // }
+        artImage.sprite = spriteImage;
     }
 
     // Update is called once per frame
