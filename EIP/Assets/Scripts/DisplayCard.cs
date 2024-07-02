@@ -7,36 +7,51 @@ using TMPro;
 
 public class DisplayCard : MonoBehaviour
 {
-    public static Card displayCard;
-    public int displayId;
-    public int cardId;
-    public string cardName;
-    public int cardCost;
-    public List<CardEffect> cardEffects;
-    public Sprite spriteImage;
+    public static Card _displayCard;
+    public int _displayId;
+    public int _cardId;
+    public string _cardName;
+    public int _cardCost;
+    public List<CardEffect> _cardEffects;
+    public Sprite _spriteImage;
 
-    public TextMeshProUGUI  nameText;
-    public TextMeshProUGUI  costText;
-    public TextMeshProUGUI  effectsText;
-    public Image artImage;
+    public TextMeshProUGUI  _nameText;
+    public TextMeshProUGUI  _costText;
+    public TextMeshProUGUI  _effectsText;
+    public Image _artImage;
+
+    public GameObject _handPanel;
+    public int _numberOfCardsInDeck;
     // Start is called before the first frame update
     void Start()
     {
-        displayCard = CardDatabase._cardList[displayId];
-        cardId = displayCard._id;
-        cardName = displayCard._name;
-        cardCost = displayCard._cost;
-        cardEffects = displayCard._effects;
-        spriteImage = displayCard._spriteImage;
+        _numberOfCardsInDeck = PlayerDeck._deckSize;
 
-        nameText.text = cardName;
-        costText.text = "" + cardCost;
-        effectsText.text = displayCard.effectsDescription();
-        artImage.sprite = spriteImage;
+        _displayCard = CardDatabase._cardList[_displayId];
+
+        _nameText = GameObject.Find("Name Text").GetComponent<TextMeshProUGUI>();
+        _costText = GameObject.Find("Cost Text").GetComponent<TextMeshProUGUI>();
+        _effectsText = GameObject.Find("Effects Text").GetComponent<TextMeshProUGUI>();
+        _artImage = GameObject.Find("Image").GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        _cardId = _displayCard._id;
+        _cardName = _displayCard._name;
+        _cardCost = _displayCard._cost;
+        _cardEffects = _displayCard._effects;
+        _spriteImage = _displayCard._spriteImage;
+
+        _nameText.text = _cardName;
+        _costText.text = "" + _cardCost;
+        _effectsText.text = _displayCard.effectsDescription();
+        _artImage.sprite = _spriteImage;
+
+        if (this.tag == "Clone") {
+            _displayCard = PlayerDeck._staticDeck[_numberOfCardsInDeck - 1];
+            this.tag = "Untagged";
+        }
     }
 }

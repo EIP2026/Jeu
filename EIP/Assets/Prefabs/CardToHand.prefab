@@ -450,15 +450,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a216045de27ba4493ff4f574712ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayId: 0
-  cardId: 0
-  cardName: 
-  cardCost: 0
-  spriteImage: {fileID: 0}
-  nameText: {fileID: 0}
-  costText: {fileID: 0}
-  effectsText: {fileID: 0}
-  artImage: {fileID: 2286778483330799712}
+  _displayId: 0
+  _cardId: 0
+  _cardName: 
+  _cardCost: 0
+  _spriteImage: {fileID: 0}
+  _nameText: {fileID: 0}
+  _costText: {fileID: 0}
+  _effectsText: {fileID: 0}
+  _artImage: {fileID: 0}
+  _handPanel: {fileID: 0}
+  _numberOfCardsInDeck: 0
 --- !u!1 &5937706852942441620
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,9 +762,10 @@ GameObject:
   - component: {fileID: 4900960476363177941}
   - component: {fileID: 5757215309050937783}
   - component: {fileID: 6240488016966390360}
+  - component: {fileID: -6351428106796575199}
   m_Layer: 5
   m_Name: CardToHand
-  m_TagString: Untagged
+  m_TagString: Cloned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,15 +840,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a216045de27ba4493ff4f574712ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayId: 3
-  cardId: 0
-  cardName: None
-  cardCost: 0
-  spriteImage: {fileID: 0}
-  nameText: {fileID: 5470107905721288303}
-  costText: {fileID: 5079541653385876191}
-  effectsText: {fileID: 8963985000285440988}
-  artImage: {fileID: 2286778483330799712}
+  _displayId: 0
+  _cardId: 0
+  _cardName: 
+  _cardCost: 0
+  _spriteImage: {fileID: 0}
+  _nameText: {fileID: 5470107905721288303}
+  _costText: {fileID: 5079541653385876191}
+  _effectsText: {fileID: 8963985000285440988}
+  _artImage: {fileID: 2286778483330799712}
+  _handPanel: {fileID: 0}
+  _numberOfCardsInDeck: 0
+--- !u!114 &-6351428106796575199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448571664296318438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a048bbecd12ae7f45bbec9530a9cc82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hand: {fileID: 0}
+  _handCard: {fileID: 6448571664296318438}
 --- !u!1 &7068293047085313076
 GameObject:
   m_ObjectHideFlags: 0
