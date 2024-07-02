@@ -38,7 +38,6 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         _cardsInHand = 2;
-        Debug.Log(_cardsInHand);
         DrawCard(_cardsInHand);
     }
 }

@@ -26,18 +26,16 @@ public class DisplayCard : MonoBehaviour
     void Start()
     {
         _numberOfCardsInDeck = PlayerDeck._deckSize;
-
         _displayCard = CardDatabase._cardList[_displayId];
-
-        _nameText = GameObject.Find("Name Text").GetComponent<TextMeshProUGUI>();
-        _costText = GameObject.Find("Cost Text").GetComponent<TextMeshProUGUI>();
-        _effectsText = GameObject.Find("Effects Text").GetComponent<TextMeshProUGUI>();
-        _artImage = GameObject.Find("Image").GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.tag == "Clone") {
+            int randomIndex = Random.Range(0, _numberOfCardsInDeck);
+            _displayCard = PlayerDeck._staticDeck[randomIndex];
+            this.tag = "Untagged";
         _cardId = _displayCard._id;
         _cardName = _displayCard._name;
         _cardCost = _displayCard._cost;
@@ -49,9 +47,6 @@ public class DisplayCard : MonoBehaviour
         _effectsText.text = _displayCard.effectsDescription();
         _artImage.sprite = _spriteImage;
 
-        if (this.tag == "Clone") {
-            _displayCard = PlayerDeck._staticDeck[_numberOfCardsInDeck - 1];
-            this.tag = "Untagged";
         }
     }
 }

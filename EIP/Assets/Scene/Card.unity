@@ -591,7 +591,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1503295135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cd38ae7adf8784dbd773e70854732f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deck: []
   _container:
     _id: 0
     _cost: 0

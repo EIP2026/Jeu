@@ -18,12 +18,11 @@ public class PlayerDeck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _x = 0;
-        for (int i = 0; i < 10; i++) {
-            _x = Random.Range(1, CardDatabase._cardList.Count);
-            _deck.Add(CardDatabase._cardList[_x]);
+        for (int i = 1; i < CardDatabase._cardList.Count; i++) {
+            _deck.Add(CardDatabase._cardList[i]);
         }
         _deckSize = _deck.Count;
+        shuffle();
         StartCoroutine(startGame());
     }
 
@@ -38,6 +37,8 @@ public class PlayerDeck : MonoBehaviour
         for (int i = 0; i < _maxCardsInHand; i++) {
             yield return new WaitForSeconds(1f);
             Instantiate(_cardToHand, transform.position, transform.rotation);
+            //var cardScript = newCard.GetComponent<DisplayCard>();
+            //cardScript._displayId = i;
         }
     }
 
