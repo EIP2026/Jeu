@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagement : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
-    public void LoadGameScene()
+    public string sceneName;
+    public void ChangeScene(string sceneName)
     {
-        Debug.Log("Loading Game Scene");
-        SceneManager.LoadSceneAsync("Game");
+        Debug.Log("Changing scene to " + sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }
