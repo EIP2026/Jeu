@@ -8,14 +8,12 @@ public class TurnManager : MonoBehaviour
     public Character player;
     public Character enemy;
     public Text statusText;
-    public Button attackButton;
     public Slider playerHealthBar;
     public Slider enemyHealthBar;
     private bool playerTurn = true;
 
     void Start()
     {
-        attackButton.onClick.AddListener(OnAttackButtonClicked);
         UpdateStatusText();
         UpdateHealthBars();
     }
@@ -50,6 +48,21 @@ public class TurnManager : MonoBehaviour
             UpdateStatusText();
             UpdateHealthBars();
             CheckGameOver();
+
+            // Appeler l'attaque de l'ennemi après un court délai
+            Invoke("EnemyAttack", 1.0f); // 1 seconde de délai pour simuler un temps de réflexion
+        }
+    }
+
+    void EnemyAttack()
+    {
+        if (!playerTurn) // Assurez-vous que c'est le tour de l'ennemi
+        {
+            enemy.Attack(player);
+            playerTurn = true;
+            UpdateStatusText();
+            UpdateHealthBars();
+            CheckGameOver();
         }
     }
 
@@ -70,12 +83,22 @@ public class TurnManager : MonoBehaviour
         if (player.currentHealth <= 0)
         {
             statusText.text = "Game Over! Enemy Wins!";
-            attackButton.interactable = false;
+            DisableCards();
         }
         else if (enemy.currentHealth <= 0)
         {
             statusText.text = "Game Over! Player Wins!";
-            attackButton.interactable = false;
+            DisableCards();
+        }
+    }
+
+    void DisableCards()
+    {
+        // Désactiver toutes les cartes pour empêcher de nouvelles actions
+        var cards = FindObjectsOfType<Button>();
+        foreach (var card in cards)
+        {
+            card.interactable = false;
         }
     }
 
