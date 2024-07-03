@@ -29,6 +29,14 @@ public class DisplayCard : MonoBehaviour
         _displayCard = CardDatabase._cardList[_displayId];
     }
 
+    public void SetCardData(Card card)
+    {
+        _nameText.text = card._name;
+        _costText.text = card._cost.ToString(); // Convert int to string for TextMeshPro
+        _effectsText.text = card.effectsDescription();
+        _artImage.sprite = card._spriteImage;
+    }
+
     // Update is called once per frame
     void Update()
     {

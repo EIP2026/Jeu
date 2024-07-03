@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardDatabase : MonoBehaviour
@@ -32,14 +33,13 @@ public class CardDatabase : MonoBehaviour
 
     public int GetNumberOfCards(int rarity)
     {
-        int count = 0;
-        foreach (Card card in _cardList)
+        if (rarity != 5)
         {
-            if (card._rarity == rarity)
-            {
-                count++;
-            }
+            return _cardList.Where(card => card._rarity == rarity).Count();
         }
-        return count;
+        else
+        {
+            return _cardList.Count;
+        }    
     }
 }
