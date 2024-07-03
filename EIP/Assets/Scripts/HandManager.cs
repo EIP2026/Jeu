@@ -7,10 +7,15 @@ public class HandManager : MonoBehaviour
     public List<Cards> playerHand;
     public GameObject cardPrefab;
     public Transform handTransform;
+    private Deck playerDeck;
+    public Text deckCountText;
+    public Text discardCountText;
 
     void Start()
     {
+        playerDeck = new Deck();
         DrawInitialHand();
+        UpdateCardCounts();
     }
 
     void DrawInitialHand()
@@ -24,12 +29,17 @@ public class HandManager : MonoBehaviour
 
     public void DrawCards()
     {
-        string cardName = "Attack";
-        int damage = Random.Range(1, 6);
-        Cards newCard = new Cards(cardName, damage);
-
-        playerHand.Add(newCard);
-        DisplayCards(newCard);
+        Cards newCard = playerDeck.DrawCard();
+        if (newCard != null)
+        {
+            playerHand.Add(newCard);
+            DisplayCards(newCard);
+            UpdateCardCounts();
+        }
+        else
+        {
+            Debug.Log("Le deck est vide et il n'y a pas de cartes à remélanger !");
+        }
     }
 
     void DisplayCards(Cards card)
@@ -70,13 +80,37 @@ public class HandManager : MonoBehaviour
     {
         FindObjectOfType<TurnManager>().PlayerAttackWithCards(card);
         playerHand.Remove(card);
+        playerDeck.DiscardCard(card);
 
         // Rafraîchir la main de cartes
+        RefreshHand();
+    }
+
+    void RefreshHand()
+    {
+        // Déplacer les cartes restantes dans la défausse
+        foreach (Cards card in playerHand)
+        {
+            playerDeck.DiscardCard(card);
+        }
+
+        // Vider la main actuelle
+        playerHand.Clear();
+
+        // Détruire les objets de carte de l'UI
         foreach (Transform child in handTransform)
         {
             Destroy(child.gameObject);
         }
 
-        DrawInitialHand(); // Redessine la main
+        // Piocher de nouvelles cartes
+        DrawInitialHand();
+        UpdateCardCounts();
+    }
+
+    void UpdateCardCounts()
+    {
+        deckCountText.text = $"Deck: {playerDeck.GetDeckCount()}";
+        discardCountText.text = $"Discard: {playerDeck.GetDiscardCount()}";
     }
 }
