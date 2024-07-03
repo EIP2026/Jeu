@@ -5,12 +5,13 @@ using UnityEngine.UI;
 public class HandManager : MonoBehaviour
 {
     public List<Cards> playerHand;
+    public List<Card> playerHandCard;
     public GameObject cardPrefab;
     public Transform handTransform;
 
     void Start()
     {
-        DrawInitialHand();
+        //DrawInitialHand();
     }
 
     void DrawInitialHand()

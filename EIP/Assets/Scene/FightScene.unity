@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -521.5111
+      value: -473.8704
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -249,16 +249,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -20.1397
+      value: 3.680664
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -132.4977
+      value: -132.49768
       objectReference: {fileID: 0}
     - target: {fileID: 5373300376111111669, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: cardPrefab
+      value: 
+      objectReference: {fileID: 6448571664296318438, guid: 3327e0dd70f27864683dccda2c1e67b2, type: 3}
     - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: playerHand.Array.size
       value: 0
@@ -282,10 +290,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4147481202196955449, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1802019120}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
 --- !u!1 &631435730 stripped
 GameObject:
