@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class HandManager : MonoBehaviour
 {
     public List<Cards> playerHand;
+    public List<Card> playerHandCard;
     public GameObject cardPrefab;
     public Transform handTransform;
     private Deck playerDeck;
@@ -13,9 +14,9 @@ public class HandManager : MonoBehaviour
 
     void Start()
     {
-        playerDeck = new Deck();
-        DrawInitialHand();
-        UpdateCardCounts();
+        //playerDeck = new Deck();
+        //DrawInitialHand();
+        //UpdateCardCounts();
     }
 
     void DrawInitialHand()

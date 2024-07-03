@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TurnManager : MonoBehaviour
 {
@@ -14,6 +16,27 @@ public class TurnManager : MonoBehaviour
     {
         UpdateStatusText();
         UpdateHealthBars();
+    }
+
+    void OnAttackButtonClicked()
+    {
+        if (!playerTurn)
+        {
+            enemy.Attack(player);
+            playerTurn = true;
+            UpdateStatusText();
+            UpdateHealthBars();
+            CheckGameOver();
+        }
+    }
+
+    public void PlayerAttackWithCard(int damage)
+    {
+        enemy.TakeDamage(damage);
+        playerTurn = false;
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
     }
 
     public void PlayerAttackWithCards(Cards card)
@@ -77,5 +100,10 @@ public class TurnManager : MonoBehaviour
         {
             card.interactable = false;
         }
+    }
+
+    public bool IsPlayerTurn()
+    {
+        return playerTurn;
     }
 }

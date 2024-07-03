@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -521.5111
+      value: -473.8704
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -20.139648
+      value: 3.680664
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -319,6 +319,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: cardPrefab
+      value: 
+      objectReference: {fileID: 6448571664296318438, guid: 3327e0dd70f27864683dccda2c1e67b2, type: 3}
     - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: playerHand.Array.size
       value: 0

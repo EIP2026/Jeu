@@ -37,8 +37,6 @@ public class PlayerDeck : MonoBehaviour
         for (int i = 0; i < _maxCardsInHand; i++) {
             yield return new WaitForSeconds(1f);
             Instantiate(_cardToHand, transform.position, transform.rotation);
-            //var cardScript = newCard.GetComponent<DisplayCard>();
-            //cardScript._displayId = i;
         }
     }
 
