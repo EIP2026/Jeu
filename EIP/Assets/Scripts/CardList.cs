@@ -21,11 +21,6 @@ public class DisplayCardInList : MonoBehaviour
     {
         List<Card> cardsToDisplay = CardDatabase._cardList.ToList();
         // for each card in the list, print their name
-        for (int i = 0; i < cardsToDisplay.Count; i++)
-        {
-            Debug.Log("Card: " + cardsToDisplay[i]._name);
-        }
-            
 
         for (int i = 0; i < numberOfCards; i++)
         {
@@ -33,6 +28,18 @@ public class DisplayCardInList : MonoBehaviour
 
             // Set the scale
             cardObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+            switch (cardsToDisplay[i]._rarity)
+            {
+                case 1:
+                    cardObject.transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                    break;
+                case 2:
+                    cardObject.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
+                    break;
+                case 3:
+                    cardObject.transform.GetChild(0).GetComponent<Image>().color = Color.green;
+                    break;
+            }
 
             DisplayCard displayCard = cardObject.GetComponent<DisplayCard>();
             if (displayCard != null && i < cardsToDisplay.Count)

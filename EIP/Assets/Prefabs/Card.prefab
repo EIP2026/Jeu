@@ -826,7 +826,10 @@ MonoBehaviour:
   _effectsText: {fileID: 8963985000285440988}
   _artImage: {fileID: 2286778483330799712}
   _handPanel: {fileID: 0}
+  _canvas: {fileID: 0}
   _numberOfCardsInDeck: 0
+  _cardButton: {fileID: 0}
+  _turnManager: {fileID: 0}
 --- !u!1 &7068293047085313076
 GameObject:
   m_ObjectHideFlags: 0
