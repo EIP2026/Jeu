@@ -7,6 +7,8 @@ public class MapGeneration : MonoBehaviour
     int[,] mapArray;
     public ObjectPool objectPool;
 
+    int activeButton = 1;
+
     void Start()
     {
         if (objectPool == null)
@@ -133,8 +135,8 @@ public class MapGeneration : MonoBehaviour
                 {
                     GameObject spriteObj = objectPool.GetObject();
                     RectTransform rectTransform = spriteObj.GetComponent<RectTransform>();
-                    float posX = (100 * (y + 1)); //* cellWidth + (spacing * y);
-                    float posY = (100 * (x + 1)); //(x + 1) * cellHeight + (spacing * x);
+                    float posX = (100 * (y + 1));
+                    float posY = (100 * (x + 1));
                     Debug.Log("x: " + x + " y: " + y + " posX: " + posX + " posY: " + posY);
                     rectTransform.anchoredPosition = new Vector2(posX, posY);
                 }

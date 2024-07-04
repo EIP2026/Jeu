@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 3203872544762990309}
   - component: {fileID: 8213805953895530130}
   - component: {fileID: 5903785954395085414}
+  - component: {fileID: 2094023393174201520}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -582,11 +583,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6459d283f4d4449ad55cc26ef5b778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneChanger: {fileID: 2094023393174201520}
   player: {fileID: 6534787225232353635}
   enemy: {fileID: 1001699684010549361}
   statusText: {fileID: 3924326495102909305}
   playerHealthBar: {fileID: 3320824337948919108}
   enemyHealthBar: {fileID: 1636772467789254625}
+  manaText: {fileID: 0}
 --- !u!114 &5903785954395085414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,10 +602,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b94956d68363948bed22d362070ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 7085733824718925856, guid: b43259218c010f54f8005f9e0ae94e4a, type: 3}
-  handTransform: {fileID: 8931528860849120479}
+  playerHandCard: []
+  cardPrefab: {fileID: 6448571664296318438, guid: 3327e0dd70f27864683dccda2c1e67b2, type: 3}
+  handTransform: {fileID: 4794222679778806570}
   deckCountText: {fileID: 273564766009975265}
   discardCountText: {fileID: 7560594655316311428}
+  _cardToHand: {fileID: 6448571664296318438, guid: ff21254da6ae227428e9a0154b1fcf1d, type: 3}
+  _turnManager: {fileID: 0}
+--- !u!114 &2094023393174201520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103023622392859935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9883e5fbc29703a4093bedfaa49edc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!1 &3259163819262159189
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +760,6 @@ GameObject:
   - component: {fileID: 8874902655698110120}
   - component: {fileID: 4298695695907411023}
   - component: {fileID: 8391744097903936811}
-  - component: {fileID: 5341229916892218607}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -835,18 +853,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb282a11ea97a34489b37e412ad31e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5341229916892218607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3396606158766385204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1de0afe2c71cf42a2194a1a9522d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3719128773333212518

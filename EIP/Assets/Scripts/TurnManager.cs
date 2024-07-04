@@ -6,6 +6,8 @@ using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
+    public SceneChanger sceneChanger;
+
     public Character player;
     public Character enemy;
     public Text statusText;
@@ -144,17 +146,24 @@ public class TurnManager : MonoBehaviour
         {
             statusText.text = "Game Over! Enemy Wins!";
             DisableCards();
+            Invoke("ReturnToMapScene", 3.0f);
         }
         else if (enemy.currentHealth <= 0)
         {
             statusText.text = "Game Over! Player Wins!";
             DisableCards();
+            Invoke("ReturnToMapScene", 3.0f);
         }
     }
 
+    void ReturnToMapScene()
+    {
+        sceneChanger.ChangeScene("MapScene");
+    }
+
+
     void DisableCards()
     {
-        // Désactiver toutes les cartes pour empêcher de nouvelles actions
         var cards = FindObjectsOfType<Button>();
         foreach (var card in cards)
         {

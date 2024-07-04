@@ -458,22 +458,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      propertyPath: cardPrefab
-      value: 
-      objectReference: {fileID: 6448571664296318438, guid: 3327e0dd70f27864683dccda2c1e67b2, type: 3}
-    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      propertyPath: _cardToHand
-      value: 
-      objectReference: {fileID: 6448571664296318438, guid: ff21254da6ae227428e9a0154b1fcf1d, type: 3}
-    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      propertyPath: handTransform
-      value: 
-      objectReference: {fileID: 631435734}
-    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: playerHand.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -543,11 +527,6 @@ PrefabInstance:
 --- !u!1 &631435730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4968247494394183931, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-  m_PrefabInstance: {fileID: 631435729}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &631435734 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
   m_PrefabInstance: {fileID: 631435729}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &727540777 stripped
