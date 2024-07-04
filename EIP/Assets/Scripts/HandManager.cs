@@ -64,6 +64,7 @@ public class HandManager : MonoBehaviour
     void DisplayCard(Card card)
     {
         GameObject newCard = Instantiate(cardPrefab, handTransform);
+        newCard.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         DisplayCard displayCard = newCard.GetComponent<DisplayCard>();
         displayCard.SetCardData(card);
     }
