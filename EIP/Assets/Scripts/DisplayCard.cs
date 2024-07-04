@@ -19,9 +19,7 @@ public class DisplayCard : MonoBehaviour
     public TextMeshProUGUI  _costText;
     public TextMeshProUGUI  _effectsText;
     public Image _artImage;
-
     public GameObject _handPanel;
-    public GameObject _canvas;
     public int _numberOfCardsInDeck;
 
     public Button _cardButton;
@@ -75,19 +73,20 @@ public class DisplayCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (this.tag == "Clone") {
+            int randomIndex = Random.Range(0, _numberOfCardsInDeck);
+            _displayCard = PlayerDeck._staticDeck[randomIndex];
+            this.tag = "Untagged";
+        _cardId = _displayCard._id;
+        _cardName = _displayCard._name;
+        _cardCost = _displayCard._cost;
+        _cardEffects = _displayCard._effects;
+        _spriteImage = _displayCard._spriteImage;
 
-    public void OnCardClicked()
-    {
-        if (!_turnManager.IsPlayerTurn()) {
-            return;
-        }
-        foreach (CardEffect effect in _cardEffects)
-        {
-            if (effect._type == "attack") {
-                _turnManager.PlayerAttackWithCard(effect._strong);
-            }
+        _nameText.text = _cardName;
+        _costText.text = "" + _cardCost;
+        _effectsText.text = _displayCard.effectsDescription();
+        _artImage.sprite = _spriteImage;
         }
         _handManager.RemoveCard(_displayCard);
     }

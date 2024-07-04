@@ -69,7 +69,6 @@ public class MapGeneration : MonoBehaviour
     static void SetDirection(int[,] array, int x, int y)
     {
         System.Random random = new System.Random();
-        // print("x: " + x + " y: " + y + " array: " + array[x, y]);
         if (array[x, y] == 1)
         {
             int randomNumber = random.Next(0, 3);
@@ -133,11 +132,10 @@ public class MapGeneration : MonoBehaviour
                 if (mapArray[x, y] == 1)
                 {
                     GameObject spriteObj = objectPool.GetObject();
-                    Transform canvasTransform = spriteObj.transform.Find("Canvas");
-                    Transform imageTransform = canvasTransform.Find("Image");
-                    RectTransform rectTransform = imageTransform.GetComponent<RectTransform>();
-                    float posX = (y + 1) * cellWidth + (spacing * y);
-                    float posY = (x + 1) * cellHeight + (spacing * x);
+                    RectTransform rectTransform = spriteObj.GetComponent<RectTransform>();
+                    float posX = (100 * (y + 1)); //* cellWidth + (spacing * y);
+                    float posY = (100 * (x + 1)); //(x + 1) * cellHeight + (spacing * x);
+                    Debug.Log("x: " + x + " y: " + y + " posX: " + posX + " posY: " + posY);
                     rectTransform.anchoredPosition = new Vector2(posX, posY);
                 }
             }
