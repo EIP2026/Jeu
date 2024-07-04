@@ -2,20 +2,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
+    public SceneChanger sceneChanger;
+
     public Character player;
     public Character enemy;
     public Text statusText;
     public Slider playerHealthBar;
     public Slider enemyHealthBar;
     private bool playerTurn = true;
+    int currentMana;
+    int maxMana;
+    public TextMeshProUGUI manaText;
 
     void Start()
     {
+        currentMana = 3;
+        maxMana = 3;
         UpdateStatusText();
         UpdateHealthBars();
+        UpdateManaText();
     }
 
     void OnAttackButtonClicked()
@@ -30,13 +39,44 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public void PlayerAttackWithCard(int damage)
+    public void PlayerAttack(int damage)
     {
         enemy.TakeDamage(damage);
-        playerTurn = false;
         UpdateStatusText();
         UpdateHealthBars();
         CheckGameOver();
+    }
+
+    public void PlayerHeal(int amount)
+    {
+        player.Heal(amount);
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    public void PlayerDraw(int amount)
+    {
+        // Draw cards
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    public void PlayerBlock(int amount)
+    {
+        // Block damage
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    public void PlayerEndTurn()
+    {
+        playerTurn = false;
+        currentMana = maxMana;
+        UpdateManaText();
+        Invoke("EnemyAttack", 1.0f);
     }
 
     public void PlayerAttackWithCards(Cards card)
@@ -78,23 +118,52 @@ public class TurnManager : MonoBehaviour
         enemyHealthBar.value = (float)enemy.currentHealth / enemy.maxHealth;
     }
 
+    void UpdateManaText()
+    {
+        manaText.text = $"{currentMana}/{maxMana}";
+    }
+
+    public int GetCurrentMana()
+    {
+        return currentMana;
+    }
+
+    public void ReduceMana(int amount)
+    {
+        currentMana -= amount;
+        UpdateManaText();
+    }
+
+    public void SetManaToMax()
+    {
+        currentMana = maxMana;
+        UpdateManaText();
+    }
+
     void CheckGameOver()
     {
         if (player.currentHealth <= 0)
         {
             statusText.text = "Game Over! Enemy Wins!";
             DisableCards();
+            Invoke("ReturnToMapScene", 3.0f);
         }
         else if (enemy.currentHealth <= 0)
         {
             statusText.text = "Game Over! Player Wins!";
             DisableCards();
+            Invoke("ReturnToMapScene", 3.0f);
         }
     }
 
+    void ReturnToMapScene()
+    {
+        sceneChanger.ChangeScene("MapScene");
+    }
+
+
     void DisableCards()
     {
-        // Désactiver toutes les cartes pour empêcher de nouvelles actions
         var cards = FindObjectsOfType<Button>();
         foreach (var card in cards)
         {
