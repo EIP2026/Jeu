@@ -20,7 +20,7 @@ public class MapGeneration : MonoBehaviour
 
     public void StartGeneration()
     {
-        mapArray = InitializeArray(4, 7);
+        mapArray = InitializeArray(15, 7);
         SetRandomElementsInFirstCollum(mapArray, GenerateRandomNumbers());
         for (int i = 0; i < mapArray.GetLength(0) - 1; i++)
         {
