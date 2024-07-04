@@ -17,6 +17,8 @@ public class TurnManager : MonoBehaviour
     int currentMana;
     int maxMana;
     public TextMeshProUGUI manaText;
+    public Text PlayerHealthText;
+    public Text EnemyHealthText;
 
     void Start()
     {
@@ -108,8 +110,8 @@ public class TurnManager : MonoBehaviour
 
     void UpdateStatusText()
     {
-        statusText.text = $"Player HP: {player.currentHealth} - Enemy HP: {enemy.currentHealth}\n" +
-                          $"{(playerTurn ? "Player's Turn" : "Enemy's Turn")}";
+        PlayerHealthText.text = $"{player.GetHealth()}/{player.GetMaxHealth()}";
+        EnemyHealthText.text = $"{enemy.GetHealth()}/{enemy.GetMaxHealth()}";
     }
 
     void UpdateHealthBars()

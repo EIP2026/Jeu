@@ -34,4 +34,14 @@ public class Character : MonoBehaviour
     {
         target.TakeDamage(attackPower);
     }
+
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }
