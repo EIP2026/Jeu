@@ -19,7 +19,7 @@ public class HandManager : MonoBehaviour
     {
         playerDeck = new Deck();
         DrawInitialHand();
-        //UpdateCardCounts();
+        UpdateCardCounts();
     }
 
     void DrawInitialHand()

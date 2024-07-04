@@ -75,18 +75,30 @@ public class DisplayCard : MonoBehaviour
     {
         if (this.tag == "Clone") {
             int randomIndex = Random.Range(0, _numberOfCardsInDeck);
-            _displayCard = PlayerDeck._staticDeck[randomIndex];
             this.tag = "Untagged";
-        _cardId = _displayCard._id;
-        _cardName = _displayCard._name;
-        _cardCost = _displayCard._cost;
-        _cardEffects = _displayCard._effects;
-        _spriteImage = _displayCard._spriteImage;
+            _cardId = _displayCard._id;
+            _cardName = _displayCard._name;
+            _cardCost = _displayCard._cost;
+            _cardEffects = _displayCard._effects;
+            _spriteImage = _displayCard._spriteImage;
 
-        _nameText.text = _cardName;
-        _costText.text = "" + _cardCost;
-        _effectsText.text = _displayCard.effectsDescription();
-        _artImage.sprite = _spriteImage;
+            _nameText.text = _cardName;
+            _costText.text = "" + _cardCost;
+            _effectsText.text = _displayCard.effectsDescription();
+            _artImage.sprite = _spriteImage;
+        }
+    }
+
+    public void OnCardClicked()
+    {
+        if (!_turnManager.IsPlayerTurn()) {
+            return;
+        }
+        foreach (CardEffect effect in _cardEffects)
+        {
+            if (effect._type == "attack") {
+                _turnManager.PlayerAttackWithCard(effect._strong);
+            }
         }
         _handManager.RemoveCard(_displayCard);
     }

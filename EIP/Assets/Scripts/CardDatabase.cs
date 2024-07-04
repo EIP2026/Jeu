@@ -25,10 +25,6 @@ public class CardDatabase : MonoBehaviour
 
         // Initialize the card list
         _cardList.Add(new Card(0, "None", 0, new List<CardEffect>(), Resources.Load<Sprite>("FightScene/none"), 0));
-        _cardList.Add(new Card(0, "None", 0, new List<CardEffect>(), Resources.Load<Sprite>("FightScene/none"), 0));
-        _cardList.Add(new Card(0, "None", 0, new List<CardEffect>(), Resources.Load<Sprite>("FightScene/none"), 0));
-        _cardList.Add(new Card(0, "None", 0, new List<CardEffect>(), Resources.Load<Sprite>("FightScene/none"), 0));
-        _cardList.Add(new Card(0, "None", 0, new List<CardEffect>(), Resources.Load<Sprite>("FightScene/none"), 0));
         _cardList.Add(new Card(1, "Attack", 1, new List<CardEffect>() { new CardEffect() { _type = "attack", _strong = 4, _duration = 1 } }, Resources.Load<Sprite>("FightScene/attack"), 1));
         _cardList.Add(new Card(2, "Super Attack", 1, new List<CardEffect>() { new CardEffect() { _type = "attack", _strong = 4, _duration = 1 } }, Resources.Load<Sprite>("FightScene/attack"), 1));
         _cardList.Add(new Card(3, "Heal", 1, new List<CardEffect>() { new CardEffect() { _type = "heal", _strong = 4, _duration = 1 } }, Resources.Load<Sprite>("FightScene/block"), 2));
