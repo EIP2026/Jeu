@@ -295,8 +295,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: db9a5716d03bd1443af2b47a99896c8c, type: 2}
-  m_sharedMaterial: {fileID: 768550477866445601, guid: db9a5716d03bd1443af2b47a99896c8c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -738,7 +738,6 @@ GameObject:
   - component: {fileID: 4900960476363177941}
   - component: {fileID: 5757215309050937783}
   - component: {fileID: 8890862477039674525}
-  - component: {fileID: 8794579328867916336}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -817,6 +816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a216045de27ba4493ff4f574712ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _displayCard:
+    _id: 0
+    _cost: 0
+    _name: 
+    _spriteImage: {fileID: 0}
+    _rarity: 0
   _displayId: 0
   _cardId: 0
   _cardName: 
@@ -828,19 +833,9 @@ MonoBehaviour:
   _artImage: {fileID: 2286778483330799712}
   _handPanel: {fileID: 0}
   _numberOfCardsInDeck: 0
---- !u!114 &8794579328867916336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6448571664296318438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4f42cc6af37754e9e06979e2b898e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScaleFactor: 1.2
+  _cardButton: {fileID: 0}
+  _turnManager: {fileID: 0}
+  _handManager: {fileID: 0}
 --- !u!1 &7068293047085313076
 GameObject:
   m_ObjectHideFlags: 0
