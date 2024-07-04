@@ -14,9 +14,11 @@ public class HandManager : MonoBehaviour
     public Text deckCountText;
     public Text discardCountText;
     public GameObject _cardToHand;
+    public TurnManager _turnManager;
 
     void Start()
     {
+        _turnManager = GameObject.Find("Canvas").GetComponent<TurnManager>();
         playerDeck = new Deck();
         DrawInitialHand();
         UpdateCardCounts();
@@ -32,18 +34,20 @@ public class HandManager : MonoBehaviour
         }
     }
 
-    public void DrawCard()
+    public void DrawCard(int amount = 1)
     {
-        Card newCard = playerDeck.DrawCard();
-        if (newCard != null)
-        {
-            playerHandCard.Add(newCard);
-            DisplayCard(newCard);
-            UpdateCardCounts();
-        }
-        else
-        {
-            Debug.Log("Le deck est vide et il n'y a pas de cartes à remélanger !");
+        for (int i = 0; i < amount; i++) {
+            Card newCard = playerDeck.DrawCard();
+            if (newCard != null)
+            {
+                playerHandCard.Add(newCard);
+                DisplayCard(newCard);
+                UpdateCardCounts();
+            }
+            else
+            {
+                Debug.Log("Le deck est vide et il n'y a pas de cartes à remélanger !");
+            }
         }
     }
     public void DrawCards()
@@ -106,7 +110,17 @@ public class HandManager : MonoBehaviour
     {
         playerHandCard.Remove(card);
         playerDeck.discardCard(card);
-        RefreshHand();
+        foreach (Transform child in handTransform)
+        {
+            if (child.GetComponent<DisplayCard>()._displayId == card._id)
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+        }
+        if (_turnManager.GetCurrentMana() <= 0) {
+            RefreshHand();
+        }
     }
 
     void OnCardsClicked(Cards card)
@@ -131,6 +145,7 @@ public class HandManager : MonoBehaviour
         }
         DrawInitialHand();
         UpdateCardCounts();
+        _turnManager.SetManaToMax();
         // Déplacer les cartes restantes dans la défausse
         // foreach (Cards card in playerHand)
         // {

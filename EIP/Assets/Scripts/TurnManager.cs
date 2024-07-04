@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -11,11 +12,17 @@ public class TurnManager : MonoBehaviour
     public Slider playerHealthBar;
     public Slider enemyHealthBar;
     private bool playerTurn = true;
+    int currentMana;
+    int maxMana;
+    public TextMeshProUGUI manaText;
 
     void Start()
     {
+        currentMana = 3;
+        maxMana = 3;
         UpdateStatusText();
         UpdateHealthBars();
+        UpdateManaText();
     }
 
     void OnAttackButtonClicked()
@@ -30,13 +37,43 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public void PlayerAttackWithCard(int damage)
+    public void PlayerAttack(int damage)
     {
         enemy.TakeDamage(damage);
-        playerTurn = false;
         UpdateStatusText();
         UpdateHealthBars();
         CheckGameOver();
+    }
+
+    public void PlayerHeal(int amount)
+    {
+        player.Heal(amount);
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    public void PlayerDraw(int amount)
+    {
+        // Draw cards
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    public void PlayerBlock(int amount)
+    {
+        // Block damage
+        UpdateStatusText();
+        UpdateHealthBars();
+        CheckGameOver();
+    }
+
+    void PlayerEndTurn()
+    {
+        playerTurn = false;
+        currentMana = maxMana;
+        UpdateManaText();
         Invoke("EnemyAttack", 1.0f);
     }
 
@@ -77,6 +114,28 @@ public class TurnManager : MonoBehaviour
     {
         playerHealthBar.value = (float)player.currentHealth / player.maxHealth;
         enemyHealthBar.value = (float)enemy.currentHealth / enemy.maxHealth;
+    }
+
+    void UpdateManaText()
+    {
+        manaText.text = $"{currentMana}/{maxMana}";
+    }
+
+    public int GetCurrentMana()
+    {
+        return currentMana;
+    }
+
+    public void ReduceMana(int amount)
+    {
+        currentMana -= amount;
+        UpdateManaText();
+    }
+
+    public void SetManaToMax()
+    {
+        currentMana = maxMana;
+        UpdateManaText();
     }
 
     void CheckGameOver()

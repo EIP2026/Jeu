@@ -91,13 +91,29 @@ public class DisplayCard : MonoBehaviour
 
     public void OnCardClicked()
     {
-        if (!_turnManager.IsPlayerTurn()) {
+        if (!_turnManager.IsPlayerTurn() || _turnManager.GetCurrentMana() < _cardCost) {
             return;
         }
+        _turnManager.ReduceMana(_cardCost);
         foreach (CardEffect effect in _cardEffects)
         {
-            if (effect._type == "attack") {
-                _turnManager.PlayerAttackWithCard(effect._strong);
+            switch (effect._type)
+            {
+                case "attack":
+                    _turnManager.PlayerAttack(effect._strong);
+                    break;
+                case "block":
+                    _turnManager.PlayerBlock(effect._strong);
+                    break;
+                case "draw":
+                    _handManager.DrawCard(effect._strong);
+                    break;
+                case "heal":
+                    _turnManager.PlayerHeal(effect._strong);
+                    break;
+                default:
+                    Debug.LogError("Unknown effect type: " + effect._type);
+                    break;
             }
         }
         _handManager.RemoveCard(_displayCard);

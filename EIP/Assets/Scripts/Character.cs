@@ -21,6 +21,15 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
     public void Attack(Character target)
     {
         target.TakeDamage(attackPower);
