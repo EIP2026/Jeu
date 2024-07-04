@@ -146,13 +146,13 @@ public class TurnManager : MonoBehaviour
     {
         if (player.currentHealth <= 0)
         {
-            statusText.text = "Game Over! Enemy Wins!";
+            // statusText.text = "Game Over! Enemy Wins!";
             DisableCards();
             Invoke("ReturnToMapScene", 3.0f);
         }
         else if (enemy.currentHealth <= 0)
         {
-            statusText.text = "Game Over! Player Wins!";
+            // statusText.text = "Game Over! Player Wins!";
             DisableCards();
             Invoke("ReturnToMapScene", 3.0f);
         }
