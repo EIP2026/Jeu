@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HandManager : MonoBehaviour
 {
@@ -11,30 +13,32 @@ public class HandManager : MonoBehaviour
     private Deck playerDeck;
     public Text deckCountText;
     public Text discardCountText;
+    public GameObject _cardToHand;
 
     void Start()
     {
-        //playerDeck = new Deck();
-        //DrawInitialHand();
+        playerDeck = new Deck();
+        DrawInitialHand();
         //UpdateCardCounts();
     }
 
     void DrawInitialHand()
     {
         playerHand = new List<Cards>();
+        playerHandCard = new List<Card>();
         for (int i = 0; i < 3; i++)
         {
-            DrawCards();
+            DrawCard();
         }
     }
 
-    public void DrawCards()
+    public void DrawCard()
     {
-        Cards newCard = playerDeck.DrawCard();
+        Card newCard = playerDeck.DrawCard();
         if (newCard != null)
         {
-            playerHand.Add(newCard);
-            DisplayCards(newCard);
+            playerHandCard.Add(newCard);
+            DisplayCard(newCard);
             UpdateCardCounts();
         }
         else
@@ -42,39 +46,66 @@ public class HandManager : MonoBehaviour
             Debug.Log("Le deck est vide et il n'y a pas de cartes à remélanger !");
         }
     }
-
-    void DisplayCards(Cards card)
+    public void DrawCards()
     {
-        if (cardPrefab == null)
-        {
-            Debug.LogError("cardPrefab is not assigned in the Inspector");
-            return;
-        }
-        if (handTransform == null)
-        {
-            Debug.LogError("handTransform is not assigned in the Inspector");
-            return;
-        }
+        // Cards newCard = playerDeck.DrawCard();
+        // if (newCard != null)
+        // {
+        //     playerHand.Add(newCard);
+        //     DisplayCards(newCard);
+        //     UpdateCardCounts();
+        // }
+        // else
+        // {
+        //     Debug.Log("Le deck est vide et il n'y a pas de cartes à remélanger !");
+        // }
+    }
 
-        GameObject cardObject = Instantiate(cardPrefab, handTransform);
+    void DisplayCard(Card card)
+    {
+        GameObject newCard = Instantiate(cardPrefab, handTransform);
+        DisplayCard displayCard = newCard.GetComponent<DisplayCard>();
+        displayCard.SetCardData(card);
+    }
+    // void DisplayCards(Cards card)
+    // {
+    //     if (cardPrefab == null)
+    //     {
+    //         Debug.LogError("cardPrefab is not assigned in the Inspector");
+    //         return;
+    //     }
+    //     if (handTransform == null)
+    //     {
+    //         Debug.LogError("handTransform is not assigned in the Inspector");
+    //         return;
+    //     }
 
-        // Trouver le composant Text dans l'enfant Button
-        Text cardText = cardObject.GetComponentInChildren<Text>();
-        if (cardText == null)
-        {
-            Debug.LogError("Text component not found in cardPrefab");
-            return;
-        }
-        cardText.text = $"{card.cardName}\nDamage: {card.damage}";
+    //     GameObject cardObject = Instantiate(cardPrefab, handTransform);
 
-        // Trouver le composant Button dans le GameObject enfant
-        Button cardButton = cardObject.GetComponentInChildren<Button>();
-        if (cardButton == null)
-        {
-            Debug.LogError("Button component not found in cardPrefab");
-            return;
-        }
-        cardButton.onClick.AddListener(() => OnCardsClicked(card));
+    //     // Trouver le composant Text dans l'enfant Button
+    //     Text cardText = cardObject.GetComponentInChildren<Text>();
+    //     if (cardText == null)
+    //     {
+    //         Debug.LogError("Text component not found in cardPrefab");
+    //         return;
+    //     }
+    //     cardText.text = $"{card.cardName}\nDamage: {card.damage}";
+
+    //     // Trouver le composant Button dans le GameObject enfant
+    //     Button cardButton = cardObject.GetComponentInChildren<Button>();
+    //     if (cardButton == null)
+    //     {
+    //         Debug.LogError("Button component not found in cardPrefab");
+    //         return;
+    //     }
+    //     cardButton.onClick.AddListener(() => OnCardsClicked(card));
+    // }
+
+    public void RemoveCard(Card card)
+    {
+        playerHandCard.Remove(card);
+        playerDeck.discardCard(card);
+        RefreshHand();
     }
 
     void OnCardsClicked(Cards card)
@@ -89,24 +120,34 @@ public class HandManager : MonoBehaviour
 
     void RefreshHand()
     {
-        // Déplacer les cartes restantes dans la défausse
-        foreach (Cards card in playerHand)
-        {
-            playerDeck.DiscardCard(card);
+        foreach (Card card in playerHandCard) {
+            playerDeck.discardCard(card);
         }
-
-        // Vider la main actuelle
-        playerHand.Clear();
-
-        // Détruire les objets de carte de l'UI
+        playerHandCard.Clear();
         foreach (Transform child in handTransform)
         {
             Destroy(child.gameObject);
         }
-
-        // Piocher de nouvelles cartes
         DrawInitialHand();
         UpdateCardCounts();
+        // Déplacer les cartes restantes dans la défausse
+        // foreach (Cards card in playerHand)
+        // {
+        //     playerDeck.DiscardCard(card);
+        // }
+
+        // // Vider la main actuelle
+        // playerHand.Clear();
+
+        // // Détruire les objets de carte de l'UI
+        // foreach (Transform child in handTransform)
+        // {
+        //     Destroy(child.gameObject);
+        // }
+
+        // // Piocher de nouvelles cartes
+        // DrawInitialHand();
+        // UpdateCardCounts();
     }
 
     void UpdateCardCounts()

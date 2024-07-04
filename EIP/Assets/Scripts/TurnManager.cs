@@ -37,6 +37,7 @@ public class TurnManager : MonoBehaviour
         UpdateStatusText();
         UpdateHealthBars();
         CheckGameOver();
+        Invoke("EnemyAttack", 1.0f);
     }
 
     public void PlayerAttackWithCards(Cards card)

@@ -7,7 +7,7 @@ using TMPro;
 
 public class DisplayCard : MonoBehaviour
 {
-    public static Card _displayCard;
+    public Card _displayCard;
     public int _displayId;
     public int _cardId;
     public string _cardName;
@@ -27,6 +27,7 @@ public class DisplayCard : MonoBehaviour
     public Button _cardButton;
 
     public TurnManager _turnManager;
+    public HandManager _handManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class DisplayCard : MonoBehaviour
         _displayCard = CardDatabase._cardList[_displayId];
         if (this.tag == "Clone") {
             int randomIndex = Random.Range(0, _numberOfCardsInDeck);
-            _displayCard = PlayerDeck._staticDeck[randomIndex];
+            //_displayCard = PlayerDeck._staticDeck[randomIndex];
             this.tag = "Untagged";
             _cardId = _displayCard._id;
             _cardName = _displayCard._name;
@@ -49,6 +50,7 @@ public class DisplayCard : MonoBehaviour
         }
 
         _turnManager = GameObject.Find("Canvas").GetComponent<TurnManager>();
+        _handManager = GameObject.Find("Canvas").GetComponent<HandManager>();
         if (_turnManager != null) {
             _cardButton = GetComponentInChildren<Button>();
             _cardButton.onClick.AddListener(() => OnCardClicked());
@@ -57,6 +59,13 @@ public class DisplayCard : MonoBehaviour
 
     public void SetCardData(Card card)
     {
+        _displayCard = card;
+        _displayId = card._id;
+        _cardId = card._id;
+        _cardName = card._name;
+        _cardCost = card._cost;
+        _cardEffects = card._effects;
+        _spriteImage = card._spriteImage;
         _nameText.text = card._name;
         _costText.text = card._cost.ToString(); // Convert int to string for TextMeshPro
         _effectsText.text = card.effectsDescription();
@@ -80,5 +89,6 @@ public class DisplayCard : MonoBehaviour
                 _turnManager.PlayerAttackWithCard(effect._strong);
             }
         }
+        _handManager.RemoveCard(_displayCard);
     }
 }

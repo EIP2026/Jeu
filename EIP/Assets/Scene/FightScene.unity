@@ -134,13 +134,17 @@ PrefabInstance:
       propertyPath: _hand
       value: 
       objectReference: {fileID: 631435730}
+    - target: {fileID: -6633081645070189921, guid: ddf985309f236e147a61510df2c54c7c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4771006193776286105, guid: ddf985309f236e147a61510df2c54c7c, type: 3}
       propertyPath: m_Name
       value: PlayerDeck
       objectReference: {fileID: 0}
     - target: {fileID: 4771006193776286105, guid: ddf985309f236e147a61510df2c54c7c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8553295984245004426, guid: ddf985309f236e147a61510df2c54c7c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -132.49768
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4811469450216117854, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_IsActive
@@ -301,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968247494394183931, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334485257678648397, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_SizeDelta.x
@@ -313,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5341229916892218607, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5373300376111111669, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -327,6 +331,14 @@ PrefabInstance:
       propertyPath: cardPrefab
       value: 
       objectReference: {fileID: 6448571664296318438, guid: 3327e0dd70f27864683dccda2c1e67b2, type: 3}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: _cardToHand
+      value: 
+      objectReference: {fileID: 6448571664296318438, guid: ff21254da6ae227428e9a0154b1fcf1d, type: 3}
+    - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 631435734}
     - target: {fileID: 5903785954395085414, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
       propertyPath: playerHand.Array.size
       value: 0
@@ -387,6 +399,11 @@ PrefabInstance:
 --- !u!1 &631435730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4968247494394183931, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
+  m_PrefabInstance: {fileID: 631435729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &631435734 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4794222679778806570, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
   m_PrefabInstance: {fileID: 631435729}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796107977
@@ -497,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1727807493099696907, guid: b391ba068d5d95f4f945c7d4ba067874, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6266824558187995784, guid: b391ba068d5d95f4f945c7d4ba067874, type: 3}
       propertyPath: m_LocalPosition.x

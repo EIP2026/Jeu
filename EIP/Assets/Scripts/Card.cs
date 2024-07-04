@@ -43,6 +43,9 @@ public class Card
                 case "draw":
                     description += "Draw " + _effects[i]._strong + " card" + (_effects[i]._strong > 1 ? "s" : "");
                     break;
+                case "heal":
+                    description += "Heal " + _effects[i]._strong + " health";
+                    break;
                 default:
                     description += "Unknown effect";
                     break;
