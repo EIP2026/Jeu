@@ -133,7 +133,7 @@ public class HandManager : MonoBehaviour
         RefreshHand();
     }
 
-    void RefreshHand()
+    public void RefreshHand()
     {
         foreach (Card card in playerHandCard) {
             playerDeck.discardCard(card);
@@ -143,9 +143,9 @@ public class HandManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        _turnManager.PlayerEndTurn();
         DrawInitialHand();
         UpdateCardCounts();
-        _turnManager.SetManaToMax();
         // Déplacer les cartes restantes dans la défausse
         // foreach (Cards card in playerHand)
         // {

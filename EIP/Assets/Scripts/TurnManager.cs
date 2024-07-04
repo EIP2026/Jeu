@@ -69,7 +69,7 @@ public class TurnManager : MonoBehaviour
         CheckGameOver();
     }
 
-    void PlayerEndTurn()
+    public void PlayerEndTurn()
     {
         playerTurn = false;
         currentMana = maxMana;
