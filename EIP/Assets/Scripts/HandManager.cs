@@ -168,7 +168,7 @@ public class HandManager : MonoBehaviour
 
     void UpdateCardCounts()
     {
-        deckCountText.text = $"Deck: {playerDeck.GetDeckCount()}";
-        discardCountText.text = $"Discard: {playerDeck.GetDiscardCount()}";
+        deckCountText.text = $"{playerDeck.GetDeckCount()}";
+        discardCountText.text = $"{playerDeck.GetDiscardCount()}";
     }
 }
