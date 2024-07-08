@@ -1948,7 +1948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3337bb46034d2e4ca3b8f153a4a9c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorblindFilter: {fileID: 1767164564118341105}
   toggle: {fileID: 5947902835916658934}
   dropdown: {fileID: 6143241409042418956}
 --- !u!1 &3783062082805152293
@@ -2599,6 +2598,7 @@ GameObject:
   - component: {fileID: 563123396792900001}
   - component: {fileID: 5412496652606256146}
   - component: {fileID: 1767164564118341105}
+  - component: {fileID: 1820713717105033145}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2707,8 +2707,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blindnessType: 0
-  _useFilter: 1
+  _useFilter: 0
   _shader: {fileID: 0}
+--- !u!114 &1820713717105033145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329530652385272029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14b875628c9e214cbe2f5f98df75315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blindnessType: 0
+  _useFilter: 0
 --- !u!1 &4429110623787586690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3337bb46034d2e4ca3b8f153a4a9c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorblindFilter: {fileID: 0}
   toggle: {fileID: 1707590860047344482}
   dropdown: {fileID: 4802555553208849139}
 --- !u!1 &4930806129245641900
@@ -3310,7 +3323,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5376568144783897975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3319,11 +3332,11 @@ RectTransform:
   - {fileID: 4022546499022238203}
   m_Father: {fileID: 3209067911721072173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -48}
-  m_SizeDelta: {x: 400, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -844, y: -319}
+  m_SizeDelta: {x: 483.8965, y: 165.6428}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5947902835916658934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,7 +3396,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &5662238735313007493
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,7 +5288,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 687.34}
+  m_SizeDelta: {x: 0, y: 621.8094}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4928489206203778961
 CanvasRenderer:

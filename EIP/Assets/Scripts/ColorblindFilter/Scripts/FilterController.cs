@@ -6,16 +6,13 @@ namespace ColorblindFilter.Scripts
 {
     public class FilterController : MonoBehaviour
     {
-        [SerializeField] private ColorblindFilter colorblindFilter;
         [SerializeField] private Toggle toggle;
         [SerializeField] private TMP_Dropdown dropdown;
 
         public void UseFilter() =>
-            colorblindFilter.SetUseFilter(toggle.isOn);
+            ColorblindFilterManager.Instance.SetUseFilter(toggle.isOn);
 
-        public void ChangeBlindType()
-        {
-            colorblindFilter.ChangeBlindType((BlindnessType) dropdown.value);
-        }
+        public void ChangeBlindType() =>
+            ColorblindFilterManager.Instance.SetBlindType((BlindnessType)dropdown.value);
     }
 }

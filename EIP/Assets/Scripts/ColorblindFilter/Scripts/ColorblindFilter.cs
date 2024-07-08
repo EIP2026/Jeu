@@ -29,6 +29,11 @@ namespace ColorblindFilter.Scripts
         private void Update() =>
             _mat.SetInt(BlindType, (int) _blindnessType);
 
+        private void OnEnable() =>
+            ColorblindFilterManager.Instance?.RegisterFilter(this);
+
+        private void OnDisable() =>
+            ColorblindFilterManager.Instance?.UnregisterFilter(this);
 
         private void OnRenderImage(RenderTexture src, RenderTexture dst)
         {
