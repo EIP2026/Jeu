@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 8107746775961285150, guid: 2bcb5e6b2f9efd940a99a326120bf429, type: 3}
+      propertyPath: sceneName
+      value: MainScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8274258121339800785, guid: 2bcb5e6b2f9efd940a99a326120bf429, type: 3}
       propertyPath: m_IsActive
       value: 0

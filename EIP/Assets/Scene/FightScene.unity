@@ -421,10 +421,6 @@ PrefabInstance:
       propertyPath: PlayerHealthText
       value: 
       objectReference: {fileID: 774056834}
-    - target: {fileID: 8391744097903936811, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 369764292809871793, guid: e7c5c255539b1324b9fa69e97c94c83b, type: 3}
